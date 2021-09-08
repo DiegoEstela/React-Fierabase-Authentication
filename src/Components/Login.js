@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useAuth } from "../Context/AuthContext";
 
@@ -9,6 +9,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const history = useHistory();
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
@@ -16,15 +17,16 @@ export const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
+      history.push("/");
     } catch (error) {
-      setError("credenciales Incorrectas");
-      setTimeout(() => setError(""), 1500);
+      setError("Credenciales Incorrectas");
+      setTimeout(() => setError(""), 2000);
     }
   };
   return (
     <div className="card">
       <div className="card-header">
-        {error && <p className="error">{{ error }}</p>}
+        {error && <p className="error">{error}</p>}
         <h1>Log In</h1>
       </div>
       <div className="card-body">

@@ -19,7 +19,7 @@ export const AuthProvider = (props) => {
   const login = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
   };
-  const logout = () => auth.logout();
+  const logout = () => auth.signOut();
 
   const value = { signup, login, logout, currentUser };
   return (
