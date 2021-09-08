@@ -26,7 +26,7 @@ export const Home = () => {
         <h1>Bienvenido</h1>
         <p>{currentUser.email}</p>
         <button className="logout-button" onClick={handleLogout}>
-          Log Out
+          Salir
         </button>
       </div>
     </div>

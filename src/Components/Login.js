@@ -19,7 +19,7 @@ export const Login = () => {
       await login(email, password);
       history.push("/");
     } catch (error) {
-      setError("Credenciales Incorrectas");
+      setError("El usuario no existe");
       setTimeout(() => setError(""), 2000);
     }
   };
@@ -27,7 +27,7 @@ export const Login = () => {
     <div className="card">
       <div className="card-header">
         {error && <p className="error">{error}</p>}
-        <h1>Log In</h1>
+        <h1>Iniciar Sesion</h1>
       </div>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
@@ -37,10 +37,10 @@ export const Login = () => {
             placeholder="Password"
             onChange={handlePassword}
           />
-          <input type="submit" value="Log In" />
+          <input type="submit" value="Iniciar Sesion" />
         </form>
         <p>
-          Todavia no tenes usuario? <Link to="/signup">Sign Up</Link>{" "}
+          No tenes usuario? <Link to="/signup">Crear Usuario</Link>{" "}
         </p>
       </div>
     </div>
