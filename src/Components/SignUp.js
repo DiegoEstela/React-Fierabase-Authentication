@@ -4,14 +4,14 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
 export const SignUp = () => {
-  const { signup } = useAuth();
-
-  const [error, setError] = useState("");
-  const history = useHistory();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const { signup } = useAuth();
+
+  const history = useHistory();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -52,7 +52,7 @@ export const SignUp = () => {
             placeholder="Confirm Password"
             onChange={handleConfirmPassword}
           />
-          <input type="submit" value="Sign Up" />
+          <input type="submit" value="Crear" />
         </form>
         <p>
           Ya tenes Usuario? <Link to="/login">Iniciar Sesion</Link>{" "}
